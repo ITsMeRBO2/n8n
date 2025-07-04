@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 26% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 224 33% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 33% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 215 27% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 27% 17%;
+    --muted-foreground: 217 10% 64%;
+
+    --accent: 179 100% 47%;
+    --accent-foreground: 220 26% 4%;
+
+    --destructive: 0 62% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 27% 17%;
+    --input: 215 27% 17%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.75rem;
+
+    /* N8N Brand Colors */
+    --n8n-primary: 263 70% 50%;
+    --n8n-accent: 179 100% 47%;
+    --n8n-orange: 25 100% 67%;
+    --n8n-gradient: linear-gradient(135deg, hsl(var(--n8n-primary)), hsl(var(--n8n-accent)));
+    --n8n-gradient-warm: linear-gradient(135deg, hsl(var(--n8n-primary)), hsl(var(--n8n-orange)));
+    
+    /* Glass Effects */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(12px);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(var(--n8n-primary) / 0.3);
+    --shadow-accent-glow: 0 0 30px hsl(var(--n8n-accent) / 0.4);
+    --shadow-elegant: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+    
+    /* Animation curves */
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 263 70% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 179 100% 47%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 263 70% 50%;
+    --glass-bg: rgba(0, 0, 0, 0.05);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --shadow-glow: 0 0 40px hsl(var(--n8n-primary) / 0.2);
+    --shadow-accent-glow: 0 0 30px hsl(var(--n8n-accent) / 0.3);
+    --shadow-elegant: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-md bg-card/20 border border-white/10 rounded-xl;
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+  }
+  
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--shadow-accent-glow);
+  }
+  
+  .gradient-n8n {
+    background: var(--n8n-gradient);
+  }
+  
+  .gradient-warm {
+    background: var(--n8n-gradient-warm);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s var(--ease-spring) forwards;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s var(--ease-smooth) forwards;
+  }
+  
+  .text-gradient-n8n {
+    background: var(--n8n-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .slide-content {
+    @apply min-h-screen flex flex-col justify-center items-center p-8;
+  }
+  
+  .slide-title {
+    @apply text-4xl md:text-6xl font-bold mb-8 text-gradient-n8n;
+  }
+  
+  .slide-subtitle {
+    @apply text-xl md:text-2xl text-muted-foreground mb-12;
+  }
+  
+  .feature-grid {
+    @apply grid gap-6 max-w-6xl mx-auto;
+  }
+  
+  .feature-card {
+    @apply glass-card p-6 transition-all duration-300 hover:scale-105 hover:glow-primary;
+  }
+}
