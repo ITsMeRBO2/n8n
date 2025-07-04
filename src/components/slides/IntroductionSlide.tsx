@@ -50,18 +50,6 @@ export default function IntroductionSlide() {
         </div>
         {/* Grid 2 par ligne pour les autres Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Explication visuelle */}
-          <Card className="w-full p-6 flex items-start gap-4 animate-fade-in-up">
-            <div className="w-12 h-12 gradient-n8n rounded-lg flex items-center justify-center flex-shrink-0 glow-primary">
-              <Link className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold font-semibold mb-2 text-foreground">Workflows visuels par nœuds</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Elle permet de créer des workflows visuels en connectant des nœuds représentant différentes applications ou actions, créant ainsi des chaînes d'automatisation.
-              </p>
-            </div>
-          </Card>
           {/* Cas d'usage */}
           <Card className="w-full p-6 flex items-start gap-4 animate-fade-in-up">
             <div className="w-12 h-12 gradient-n8n rounded-lg flex items-center justify-center flex-shrink-0 glow-primary">
